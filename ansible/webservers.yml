@@ -1,0 +1,11 @@
+---
+- name: Configure all web servers
+  hosts: webservers
+  # serial: 1
+  tasks:
+    - name: use the role
+      include_role:
+        name: common
+      vars:
+        # win_feature_name: snmp-service
+        # say_stuff: yes
