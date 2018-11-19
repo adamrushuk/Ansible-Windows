@@ -1,0 +1,11 @@
+---
+- name: Set timezone to 'GMT Standard Time' (GMT)
+  win_timezone:
+    timezone: GMT Standard Time
+
+- name: Set language to English Great Britain, reboot if required
+  win_region:
+    unicode_language: en-GB
+  register: result
+- win_reboot:
+  when: result.restart_required
