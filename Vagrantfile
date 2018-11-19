@@ -7,8 +7,8 @@ check_plugins ['vagrant-reload']
 ## Boxes
 windows_box_name    = 'adamrushuk/win2016-std-dev'
 windows_box_version = '1809.1.0'
-linux_box_name      = 'centos/7'
-linux_box_version   = '1809.01'
+linux_box_name      = 'bento/centos-7.5'
+linux_box_version   = '201808.24.0'
 
 ## Network
 ## NIC Adapter #2 (1st NIC is reserved for Vagrant comms)
