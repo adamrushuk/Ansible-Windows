@@ -1,11 +1,12 @@
----
 - name: Set timezone
   win_timezone:
     timezone: "{{ timezone }}"
 
-- name: Set language and reboot if required
+- name: Set language
   win_region:
     unicode_language: "{{ unicode_language }}"
   register: result
-- win_reboot:
+
+- name: Reboot if required
+  win_reboot:
   when: result.restart_required

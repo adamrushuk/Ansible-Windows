@@ -15,7 +15,7 @@
         resource_name: group
         GroupName: "{{ ansible_hostname }}-computergroup"
       delegate_to: "{{ groups.webservers[0] }}"
-      debugger: always
+      debugger: on_failed
 
     - name: Create more groups
       win_dsc:

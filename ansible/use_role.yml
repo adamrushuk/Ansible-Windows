@@ -3,9 +3,9 @@
   hosts: all
   serial: 1
   tasks:
-    - name: use the role
+    - name: Use the role
       include_role:
         name: common
       vars:
-        var1: value1
-        var2: value2
+        timezone: GMT Standard Time
+        unicode_language: en-GB
