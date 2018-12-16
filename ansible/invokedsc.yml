@@ -1,4 +1,3 @@
----
 - name: Do things with DSC
   # run 1 host at a time (serial: 1)
   serial: 1

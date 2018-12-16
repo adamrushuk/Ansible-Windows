@@ -1,5 +1,4 @@
----
-- name: Use a role (new-school)
+- name: Use a role
   hosts: all
   serial: 1
   tasks:

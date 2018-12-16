@@ -1,0 +1,17 @@
+- name: Install IIS
+  win_feature:
+    name: Web-Server
+    state: present
+    include_sub_features: no
+    include_management_tools: yes
+  register: iisresult
+
+- name: Copy iisstart.htm file
+  win_template:
+    src: iisstart.j2
+    dest: c:\inetpub\wwwroot\iisstart.htm
+
+- name: Reboot if required
+  win_reboot:
+  when: iisresult.reboot_required
+  debugger: on_failed

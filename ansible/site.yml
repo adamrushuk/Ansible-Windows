@@ -1,3 +1,2 @@
----
-  - import_playbook: webservers.yml
-  # - import_playbook: someotherplaybook.yml
+- import_playbook: webservers.yml
+# - import_playbook: someotherplaybook.yml
