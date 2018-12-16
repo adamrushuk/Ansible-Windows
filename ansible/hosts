@@ -1,0 +1,15 @@
+[all]
+
+[all:children]
+webservers
+
+[webservers]
+web01 ansible_host=192.168.10.11
+web02 ansible_host=192.168.10.12
+
+[all:vars]
+ansible_connection=winrm
+ansible_port=5985
+ansible_user=vagrant
+ansible_password=vagrant
+ansible_winrm_server_cert_validation=ignore

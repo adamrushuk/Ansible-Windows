@@ -1,0 +1,26 @@
+---
+- name: Do things with DSC
+  # run 1 host at a time (serial: 1)
+  serial: 1
+  hosts: all
+  tasks:
+    - name: Create a group
+      win_dsc:
+        resource_name: group
+        GroupName: GroupyGroup
+
+    # run only on web01 (delegate_to groups.webservers[0])
+    - name: Create a group using delegation
+      win_dsc:
+        resource_name: group
+        GroupName: "{{ ansible_hostname }}-computergroup"
+      delegate_to: "{{ groups.webservers[0] }}"
+      debugger: on_failed
+
+    - name: Create more groups
+      win_dsc:
+        resource_name: group
+        GroupName: "{{ item }}"
+      with_items:
+        - Developers
+        - Admin

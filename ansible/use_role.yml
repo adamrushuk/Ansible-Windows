@@ -1,0 +1,11 @@
+---
+- name: Use a role (new-school)
+  hosts: all
+  serial: 1
+  tasks:
+    - name: Use the role
+      include_role:
+        name: common
+      vars:
+        timezone: GMT Standard Time
+        unicode_language: en-GB
