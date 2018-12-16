@@ -1,6 +1,5 @@
 - name: Configure all web servers
   hosts: webservers
-  # serial: 1
   tasks:
     - name: Common role
       include_role:
@@ -9,16 +8,9 @@
         timezone: GMT Standard Time
         unicode_language: en-GB
 
-    - name: Install IIS
-      win_feature:
-        name: "Web-Server"
-        state: present
-        restart: no
-        include_sub_features: no
-        include_management_tools: yes
-      register: iisresult
-
-    - name: Reboot if required
-      win_reboot:
-      when: iisresult.reboot_required
-      debugger: on_failed
+    - name: IIS role
+      include_role:
+        name: iis
+      vars:
+        title_content: "IIS Custom Title for {{ ansible_hostname }}"
+        font_colour: blue

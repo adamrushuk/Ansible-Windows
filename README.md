@@ -4,7 +4,8 @@ A repo to test Ansible in a Windows environment.
 
 ## Installation
 
-From the root directory of this repo, run: `vagrant up`
+1. Clone this repo, eg: `git clone git@github.com:adamrushuk/Ansible-Windows.git`
+1. To build an Ansible Control node and two Windows hosts, ensure you're in the root directory of this repo, then run `vagrant up`
 
 ## Test Windows Connectivity
 
@@ -48,6 +49,8 @@ This playbook uses `serial: 1` to apply configuration to one host at a time. `de
   `cd /vagrant/ansible/`
 1. Run playbook, showing verbose messages (`-v`):  
   `ansible-playbook invokedsc.yml -v`
+  
+NOTE: You can increase verbose mode (-vvv for more, -vvvv to enable connection debugging).
 
 ### Test a Role
 
