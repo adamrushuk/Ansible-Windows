@@ -20,5 +20,5 @@
 
     - name: Reboot if required
       win_reboot:
-      when: iisresult.restart_required
+      when: iisresult.reboot_required
       debugger: on_failed
