@@ -1,11 +1,11 @@
 ---
-- name: Set timezone to 'GMT Standard Time' (GMT)
+- name: Set timezone
   win_timezone:
-    timezone: GMT Standard Time
+    timezone: "{{ timezone }}"
 
-- name: Set language to English Great Britain, reboot if required
+- name: Set language and reboot if required
   win_region:
-    unicode_language: en-GB
+    unicode_language: "{{ unicode_language }}"
   register: result
 - win_reboot:
   when: result.restart_required
