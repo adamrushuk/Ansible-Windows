@@ -3,9 +3,22 @@
   hosts: webservers
   # serial: 1
   tasks:
-    - name: use the role
-      include_role:
-        name: common
+  - name: Common role
+    include_role:
+      name: common
       vars:
-        # win_feature_name: snmp-service
-        # say_stuff: yes
+        timezone: GMT Standard Time
+        unicode_language: en-GB
+
+  - name: Install IIS
+    win_feature:
+      name: "Web-Server"
+      state: present
+      restart: no
+      include_sub_features: yes
+      include_management_tools: yes
+    register: iisresult
+
+  - name: Reboot if required
+    win_reboot:
+    when: iisresult.restart_required
