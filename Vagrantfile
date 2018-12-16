@@ -56,6 +56,7 @@ Vagrant.configure('2') do |config|
         yum -y install epel-release
         yum -y install ansible
         yum -y install python-pip
+        yum -y install tree
         pip install --upgrade pip
         pip install pywinrm
       SHELL
