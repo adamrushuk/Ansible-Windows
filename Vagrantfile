@@ -51,15 +51,13 @@ Vagrant.configure('2') do |config|
       subconfig.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__auto: true
 
       # Provisioning
+      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_common.sh'
+      # Install Docker
+      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_docker_ce.sh'
       # Install Ansible
-      subconfig.vm.provision 'shell', inline: <<-SHELL
-        yum -y install epel-release
-        yum -y install ansible
-        yum -y install python-pip
-        yum -y install tree
-        pip install --upgrade pip
-        pip install pywinrm
-      SHELL
+      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_ansible.sh'
+      # Install Ansible AWX
+      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_ansible_awx.sh'
     end
 
 
