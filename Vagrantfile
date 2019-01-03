@@ -7,8 +7,8 @@ check_plugins ['vagrant-reload']
 ## Boxes
 windows_box_name    = 'adamrushuk/win2016-std-dev'
 windows_box_version = '1809.1.0'
-linux_box_name      = 'bento/centos-7.5'
-linux_box_version   = '201808.24.0'
+linux_box_name      = 'bento/centos-7.6'
+linux_box_version   = '201812.27.0'
 
 ## Network
 ## NIC Adapter #2 (1st NIC is reserved for Vagrant comms)
@@ -51,13 +51,13 @@ Vagrant.configure('2') do |config|
       subconfig.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__auto: true
 
       # Provisioning
-      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_common.sh'
-      # Install Docker
-      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_docker_ce.sh'
+      subconfig.vm.provision 'shell', path: 'vagrant/scripts/install_common.sh'
       # Install Ansible
-      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_ansible.sh'
+      subconfig.vm.provision 'shell', path: 'vagrant/scripts/install_ansible.sh'
+      # Install Docker
+      subconfig.vm.provision 'shell', path: 'vagrant/scripts/install_docker_ce.sh'
       # Install Ansible AWX
-      subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/install_ansible_awx.sh'
+      subconfig.vm.provision 'shell', path: 'vagrant/scripts/install_ansible_awx.sh'
     end
 
 
@@ -87,7 +87,7 @@ Vagrant.configure('2') do |config|
     # Reset Windows license
     subconfig.vm.provision 'shell', inline: 'cscript slmgr.vbs /rearm //B //NOLOGO'
     # Configure remoting for Ansible
-    subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/ConfigureRemotingForAnsible.ps1'
+    subconfig.vm.provision 'shell', path: 'vagrant/scripts/ConfigureRemotingForAnsible.ps1'
     # Reboot VM
     subconfig.vm.provision :reload
   end
@@ -119,7 +119,7 @@ Vagrant.configure('2') do |config|
     # Reset Windows license
     subconfig.vm.provision 'shell', inline: 'cscript slmgr.vbs /rearm //B //NOLOGO'
     # Configure remoting for Ansible
-    subconfig.vm.provision 'shell', path: 'Vagrant/Scripts/ConfigureRemotingForAnsible.ps1'
+    subconfig.vm.provision 'shell', path: 'vagrant/scripts/ConfigureRemotingForAnsible.ps1'
     # Reboot VM
     subconfig.vm.provision :reload
   end
