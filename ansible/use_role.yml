@@ -1,6 +1,5 @@
 - name: Use a role
   hosts: all
-  serial: 1
   tasks:
     - name: Use the role
       include_role:
