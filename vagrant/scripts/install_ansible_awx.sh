@@ -3,6 +3,11 @@
 # Installs Ansible AWX
 echo "INFO: Started Installing Ansible AWX..."
 
+# Install prereq: Docker SDK for Python
+echo "INFO: Started Installing Docker SDK for Python..."
+pip install docker
+echo "INFO: Finished Installing Docker SDK for Python."
+
 # Clone repo
 ansible_git_folder="/root/awx/"
 if [ ! -d "$ansible_git_folder" ]
