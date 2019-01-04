@@ -11,8 +11,7 @@ yum -y install yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 # Install Docker
-yum -y install docker-ce docker-python
-pip install docker-compose==1.9.0
+yum -y install docker-ce
 
 # Start Docker and enable auto-start on boot
 systemctl start docker
