@@ -23,8 +23,5 @@ echo "INFO: Running Ansible AWX install playbook..."
 cd /root/awx/installer/
 ansible-playbook -i inventory install.yml
 
-# Confirm build with
-# docker ps
-# docker logs -f awx_task
-
 echo "INFO: Finished Installing Ansible AWX."
+echo "INFO: Confirm build by running 'docker ps' and 'docker logs -f awx_task'"
