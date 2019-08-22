@@ -72,12 +72,3 @@ The `webservers.yml` playbook contains the `common` role, and also installs the 
 1. Run playbook:  
   `ansible-playbook site.yml -v`
 
-## Known Issues
-
-There were issues with the latest versions of VirtualBox (5.2.22) / Vagrant (2.2.1) during initial testing, where
-the NIC adapters were not recognised, so I ended up using older versions using [Chocolatey](https://chocolatey.org/docs/installation#installing-chocolatey):
-
-```powershell
-choco install virtualbox --version 5.2.18
-choco install vagrant --version 2.1.5
-```
