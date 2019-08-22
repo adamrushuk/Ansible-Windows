@@ -27,7 +27,6 @@ Vagrant.configure('2') do |config|
     vb.gui          = true
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
     vb.customize ['setextradata', 'global', 'GUI/SuppressMessages', 'all']
-    # vb.default_nic_type = '82545EM' # not required as now using older version of VBox / Vagrant
   end
 
   # Increase timeout in case VMs joining the domain take a while to boot
