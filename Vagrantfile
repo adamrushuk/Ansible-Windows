@@ -8,7 +8,7 @@ check_plugins ['vagrant-reload']
 windows_box_name    = 'adamrushuk/win2016-std-dev'
 windows_box_version = '1809.1.0'
 linux_box_name      = 'bento/centos-7.6'
-linux_box_version   = '201812.27.0'
+linux_box_version   = '201907.24.0'
 
 ## Network
 ## NIC Adapter #2 (1st NIC is reserved for Vagrant comms)
@@ -48,7 +48,7 @@ Vagrant.configure('2') do |config|
       subconfig.vm.box_version = linux_box_version
       subconfig.vm.network 'private_network', ip: ansible01_ip
       subconfig.vm.network 'forwarded_port', guest: 22, host: 33510, auto_correct: true
-      subconfig.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__auto: true
+      # subconfig.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__auto: true
 
       # Provisioning
       subconfig.vm.provision 'shell', path: 'vagrant/scripts/install_common.sh'
